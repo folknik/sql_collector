@@ -1,0 +1,29 @@
+Clients:
+  schema: 'clients'
+  alias: 'C'
+  pk: 'ClientId'
+  fk: {}
+  columns:
+    - ClientId
+    - FirstName
+    - MiddleName
+    - LastName
+    - Email
+    - CreatedAt
+  filter: []
+BillingContracts:
+  schema: 'billing'
+  alias: 'B'
+  pk: 'ContractId'
+  fk:
+    Clients: 'ClientId'
+  columns:
+    - ContractId
+    - PayDay
+    - OfferId
+    - Discount
+    - BalanceAmount
+    - CreatedAt
+  filter:
+    column: 'CreatedAt'
+    type: 'BETWEEN'
